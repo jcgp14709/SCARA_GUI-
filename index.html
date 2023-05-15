@@ -3,12 +3,12 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js">
-    var socket=io();
-       socket.on['data',function(data)]{
-                     
-                     console.log(data);
-      document.getElementById('sample').innerHTML=data;
-                     }];
+    var realConsoleLog = console.log;
+        console.log = function () {
+            var message = [].join.call(arguments, " ");
+            $(".output").text(message);
+            realConsoleLog.apply(console, arguments);
+        };
      
     </script>
     <link rel="stylesheet" type="text/css" href="style.css">

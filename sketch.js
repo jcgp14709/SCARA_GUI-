@@ -327,7 +327,7 @@ j2Slider=slider1.value();
 j3Slider=slider2.value();
 zSlider=slider3.value();
   console.log(data);
-  createElement('p',data);
+  createElement('p' ,data);
 }
  function inverseKinematics(x,y,z) {
   theta2 = acos((sq(x) + sq(y) - sq(L1) - sq(L2)) / (2 * L1 * L2));
