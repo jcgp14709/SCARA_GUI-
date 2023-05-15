@@ -3,13 +3,17 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js">
-    var realConsoleLog = console.log;
-        console.log = function () {
-            var message = [].join.call(arguments, " ");
-            $(".output").text(message);
-            realConsoleLog.apply(console, arguments);
-        };
-     
+      fetch('https://jcgp14709.github.io/SCARA_GUI/data.json')
+  .then(response => response.json())
+  .then(data => {
+    // use the retrieved data
+    console.log(data);
+  })
+  .catch(error => {
+    // handle errors
+    console.error(error);
+  });
+    
     </script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />

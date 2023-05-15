@@ -36,7 +36,7 @@ var L1 = 228; // L1 = 228mm
 var L2 = 136.5; // L2 = 136.5mm
 var theta1, theta2, phi, z;
 var data
-
+JSON.stringify(data);
 let slider;
 let slider1;
 let slider2;
@@ -326,8 +326,9 @@ j1Slider=slider.value();
 j2Slider=slider1.value();
 j3Slider=slider2.value();
 zSlider=slider3.value();
-  console.log(data);
+ 
   createElement('p' ,data);
+  console.log(JSON.stringify(data));
 }
  function inverseKinematics(x,y,z) {
   theta2 = acos((sq(x) + sq(y) - sq(L1) - sq(L2)) / (2 * L1 * L2));
@@ -379,4 +380,10 @@ zSlider=slider3.value();
   slider1.value(theta2);
   slider2.value(phi);
   slider3.value(zP);
+}
+
+function getSliderData(){
+  data = str(saveStatus)+","+str(runStatus)+","+str(round(slider.value()))+","+str(round(slider1.value()))+","+str(round(slider2.value()))+","+str(round(slider3.value()))+","+str(round(slider4.value())) +","+str(speedSlider)+","+str(accelerationSlider);
+  
+  return JSON.stringify(data)
 }
