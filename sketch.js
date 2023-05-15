@@ -326,7 +326,7 @@ j1Slider=slider.value();
 j2Slider=slider1.value();
 j3Slider=slider2.value();
 zSlider=slider3.value();
- 
+  console.log(data);
   createElement('p' ,data);
   console.log(JSON.stringify(data));
 }
