@@ -2,25 +2,23 @@
 <html lang="en">
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js">
-      fetch('https://jcgp14709.github.io/SCARA_GUI/data.json')
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
     <script>
-  fetch('https://jcgp14709.github.io/SCARA_GUI/data.json')
-    .then(response => response.json())
-    .then(data => {
-      // use the retrieved data
-      console.log(data);
-      // send the data to ESP32 using HTTP GET request
-      fetch('http://esp32-server-ip-address/data?data=' + encodeURIComponent(JSON.stringify(data)))
-        .then(response => console.log(response))
-        .catch(error => console.error(error));
-    })
-    .catch(error => {
-      // handle errors
-      console.error(error);
-    });
-</script>
+      fetch('https://jcgp14709.github.io/SCARA_GUI/data.json')
+        .then(response => response.json())
+        .then(data => {
+          // use the retrieved data
+          console.log(data);
+          // send the data to ESP32 using HTTP GET request
+          fetch('http://192.168.1.94/data?data=' + encodeURIComponent(JSON.stringify(data)))
+            .then(response => console.log(response))
+            .catch(error => console.error(error));
+        })
+        .catch(error => {
+          // handle errors
+          console.error(error);
+        });
+    </script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
 
